@@ -1,0 +1,11 @@
+result
+.direnv/
+case-study-gen
+# texlive stuff
+*.toc
+*.snm
+*.log
+*.nav
+*.aux
+*.out
+*.pdf

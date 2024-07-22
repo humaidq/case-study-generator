@@ -1,0 +1,316 @@
+/* Default colours */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+:root {
+  --main-bg: #fefefe;
+  --main-text: #000;
+  --nav-text: #777;
+
+  --success-bg: #a7f9a7;
+  --danger-bg: #f9a7b6;
+  --info-bg: #d7d7d7;
+  --warning-bg: #fcef37;
+
+  --danger-btn: #fc4e51;
+}
+/* Page style */
+body {
+  font-family: "Lucidia Grande", "Segoe UI", "Roboto", sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  background-color: var(--main-bg);
+  color: var(--main-text);
+}
+
+.container {
+  max-width: 1250px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 20px 30px;
+}
+
+.footer {
+  font-size: 0.8rem;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Typography */
+.title {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0 30px 0 30px;
+}
+
+.footer p {
+  margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Merriweather, serif;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+a {
+  color: inherit;
+}
+
+.muted-text {
+  color: #6f6f6f;
+  font-size: 0.9rem;
+}
+
+code {
+  white-space: pre;
+}
+/* Navigation */
+.nav {
+  padding: 5px 15px;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: bold;
+  padding-right: 15px;
+  color: var(--nav-text);
+  line-height: 2rem;
+}
+
+.nav-title {
+  font-family: Merriweather, serif;
+  color: var(--main-text) !important;
+}
+
+.nav-left {
+  float: left;
+}
+
+.nav-right {
+  float: right;
+  text-align: right;
+}
+
+.logo {
+  height: 18px;
+}
+/* Entries listing */
+.entry {
+  padding: 5px 15px;
+}
+
+.entry a {
+  display: block;
+  width: 100%;
+  color: #0b47bf;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.meta a {
+  padding: 0;
+  margin: 0 0 5px 15px;
+  color: #555;
+  font-weight: lighter;
+}
+
+.meta p {
+  margin: 0;
+}
+
+blockquote {
+  color: #666;
+  border-left: 4px solid #ccc;
+  padding-left: 8px;
+  margin-left: 0;
+}
+
+pre {
+  padding: 4px;
+}
+
+code,
+pre {
+  background-color: #efefef;
+  border-radius: 3px;
+}
+
+.badge {
+  background: #dedede;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #3f3f3f;
+}
+
+.btn {
+  display: inline-block;
+  font-align: center;
+  color: #333;
+  background-color: #fafafa;
+  padding: 3px 5px;
+  border: #ccc 1px solid;
+  text-decoration: none;
+}
+
+.btn:focus {
+  border: #888 1px solid;
+}
+
+.btn-danger {
+  background-color: var(--danger-btn);
+  color: #fff;
+}
+
+/* Alert */
+.alert {
+  display: block;
+  margin: 15px;
+  padding: 8px;
+  color: #000;
+  border-radius: 5px;
+}
+
+.alert-title {
+  font-weight: bold;
+}
+
+.alert-green {
+  background-color: var(--success-bg);
+}
+
+.alert-grey {
+  background-color: var(--info-bg);
+}
+
+.alert-yellow {
+  background-color: var(--warning-bg);
+}
+
+.alert-red {
+  background-color: var(--danger-bg);
+}
+textarea,
+input {
+  border-radius: 0;
+  border: none;
+  resize: none;
+  padding: 4px 6px;
+  max-width: 100%;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+label {
+  display: inline-block;
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.form-item {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.form-group {
+  padding-bottom: 10px;
+}
+
+/* Responsive Layout */
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 780px) {
+  body {
+    font-size: 1em;
+  }
+  p {
+    margin: 0;
+  }
+  textarea {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .nav-extra {
+    display: none;
+  }
+}
+
+object {
+  width: 100%;
+  height: 70vh;
+}

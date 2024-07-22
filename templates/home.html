@@ -1,0 +1,26 @@
+{{ template "head" . }}
+<form method="post">
+  {{ if .Error }}
+  <div class="alert alert-red">
+    <h5 class="alert-title">Uh-oh!</h5>
+    <p>{{.Error}}</p>
+  </div>
+  {{end}}
+  <h2>Let's get started...</h2>
+  <textarea
+    class="wide"
+    name="prompt"
+    id="prompt"
+    {{
+    if
+    .Prompt
+    }}value="{{ .Prompt }}"
+    {{
+    end
+    }}
+    placeholder="Create a case study on ..."
+    rows="8"
+  ></textarea>
+  <button type="submit" class="btn wide">Do the study →</button>
+</form>
+{{ template "foot" . }}

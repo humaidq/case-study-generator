@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "IBM Plex Sans", Arial, sans-serif;
+      }
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      .header {
+        font-size: 28px;
+        font-weight: bold;
+        padding-bottom: 25px;
+      }
+      .content {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        position: relative;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+      }
+      .column img {
+        margin-bottom: 10px;
+      }
+      .column h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #7e7e7e;
+      }
+      .column ul {
+        list-style-type: none;
+        padding-left: 2px;
+      }
+      .column ul li {
+        font-size: 12px;
+        margin: 10px 0;
+      }
+      .separator {
+        display: flex;
+        padding-top: 55px;
+        width: 0%;
+        position: relative;
+      }
+      .separator img {
+        z-index: 1;
+        transform: translateX(-13px);
+        scale: 1.3;
+      }
+      .vertical-line {
+        position: absolute;
+        left: 32%;
+        top: 0;
+        bottom: 0;
+        border-left: 1px solid #d8d8d8;
+        height: 80vh;
+        transform: translateY(60px);
+      }
+      .impact {
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(-18px);
+        padding-top: 40px;
+      }
+      .mid {
+      }
+      .background {
+        z-index: -1;
+        width: 36vw;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        background-color: #e6e7ed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container">
+      <div class="header">@@TITLE@@</div>
+      <div class="content">
+        <div class="column">
+          <img src="doc.svg" alt="File Icon" />
+          <h2>Context</h2>
+          <ul>
+            @@CONTEXT@@
+          </ul>
+        </div>
+        <div class="separator">
+          <img src="arrow.png" alt="Arrow Icon" />
+        </div>
+        <div class="vertical-line"></div>
+        <div class="column">
+          <img src="target.svg" alt="Target Icon" />
+          <h2>Approach</h2>
+          <ul style="padding-right: 20px">
+            @@APPROACH@@
+          </ul>
+        </div>
+        <div class="column impact">
+          <h2>Impact</h2>
+          <ul>
+            @@IMPACT@@
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

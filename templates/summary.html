@@ -1,0 +1,7 @@
+{{ template "head" . }}
+<h3>Your Study</h3>
+<p><a class="btn" href="/study/{{.id}}.pdf" download="1">Download</a></p>
+<object type="application/pdf" data="/study/{{.id}}.pdf">
+  <p>Couldn't load PDF</p>
+</object>
+{{ template "foot" . }}

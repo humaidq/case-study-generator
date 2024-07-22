@@ -1,0 +1,92 @@
+{{ template "head" . }}
+<style>
+  .loader {
+    width: 70px;
+    height: 40px;
+    outline: 2px solid #f0f0f0;
+    background:
+      radial-gradient(farthest-side, #3852fa 90%, #0000) 0 0/8px 8px no-repeat,
+      radial-gradient(farthest-side, #000 90%, #0000) 0 0/8px 8px no-repeat,
+      linear-gradient(#f0f0f0 0 0) 50%/10px 100% no-repeat,
+      conic-gradient(from 90deg at 10px 10px, #0000 90deg, #f0f0f0 0),
+      conic-gradient(from -90deg at 60px 30px, #0000 90deg, #f0f0f0 0);
+    animation: l9 2s infinite;
+  }
+  @keyframes l9 {
+    0% {
+      background-position:
+        50% 100%,
+        0 0,
+        50%;
+    }
+    12.5% {
+      background-position:
+        0 100%,
+        50% 0,
+        50%;
+    }
+    25% {
+      background-position:
+        0 0,
+        50% 100%,
+        50%;
+    }
+    37.5% {
+      background-position:
+        50% 0,
+        100% 100%,
+        50%;
+    }
+    50% {
+      background-position:
+        50% 100%,
+        100% 0,
+        50%;
+    }
+    62.5% {
+      background-position:
+        100% 100%,
+        50% 0,
+        50%;
+    }
+    75% {
+      background-position:
+        100% 0,
+        50% 100%,
+        50%;
+    }
+    82.5% {
+      background-position:
+        50% 0,
+        0 100%,
+        50%;
+    }
+    100% {
+      background-position:
+        50% 100%,
+        0 0,
+        50%;
+    }
+  }
+</style>
+<center>
+  <h3>Generating fresh case study...</h3>
+  <div class="loader"></div>
+</center>
+<script>
+  // Create a timer and call an endpoint with http get every 1 second
+  // Check if plaintext response is "OK"
+  var timer = setInterval(function () {
+    fetch("/study/{{.id}}/status")
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (text) {
+        if (text === "OK") {
+          clearInterval(timer);
+          window.location.href = "/study/{{.id}}";
+        }
+      });
+  }, 1000);
+</script>
+{{ template "foot" . }}
