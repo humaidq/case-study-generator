@@ -116,9 +116,7 @@ func GetSummary(prompt string) (CaseStudy, error) {
 	if len(prompt) < 8 {
 		return CaseStudy{}, fmt.Errorf("Prompt is too short, please provide more information")
 	}
-	// fetch api key from env
-	key := os.Getenv("OPENAI_KEY")
-	client := openai.NewClient(key)
+	client := openai.NewClient(openaiKey)
 
 	resp, err := client.CreateChatCompletion(
 		context.Background(),

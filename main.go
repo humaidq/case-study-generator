@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/flamego/binding"
@@ -17,8 +18,6 @@ import (
 	"github.com/humaidq/case-study-gen/static"
 	"github.com/humaidq/case-study-gen/templates"
 )
-
-const PORT = "8080"
 
 type AIForm struct {
 	Prompt string `form:"prompt"`
@@ -72,8 +71,37 @@ func ProcessPrompt(id string, prompt string) {
 	studies[id].file = output
 }
 
+var (
+	port      string
+	openaiKey string
+)
+
+func loadEnvs() {
+	port = os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "8080"
+	}
+
+	keyPath := os.Getenv("OPENAI_KEY_PATH")
+	if len(keyPath) == 0 {
+		openaiKey = os.Getenv("OPENAI_KEY")
+	} else {
+		b, err := os.ReadFile(keyPath)
+		if err != nil {
+			log.Fatalf("Failed to read OpenAI key file: %v", err)
+		}
+		openaiKey = strings.TrimSpace(string(b))
+	}
+
+	if len(openaiKey) == 0 {
+		log.Fatalf("OpenAI key not set!")
+	}
+}
+
 func main() {
 	studies = make(map[string]*StudyRequest)
+	loadEnvs()
+
 	f := flamego.Classic()
 
 	// Setup flamego
@@ -167,9 +195,9 @@ func main() {
 	})
 
 	// Serve
-	log.Printf("Starting web server on port %s\n", PORT)
+	log.Printf("Starting web server on port %s\n", port)
 	srv := &http.Server{
-		Addr:         fmt.Sprintf("0.0.0.0:%s", PORT),
+		Addr:         fmt.Sprintf("0.0.0.0:%s", port),
 		Handler:      f,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
